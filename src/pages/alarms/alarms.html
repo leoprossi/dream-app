@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Alarms</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let alarm of alarms">
+      <h3>{{alarm.time | date : "HH:mm"}}</h3>
+      <p color="medium" *ngFor="let day of alarm.days">{{day}}</p>
+    </ion-item>
+  </ion-list>
+  <ion-fab right bottom>
+    <button ion-fab color="primary" (click)="newAlarm($event)"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+</ion-content>

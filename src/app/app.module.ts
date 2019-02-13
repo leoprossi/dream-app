@@ -10,13 +10,16 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { DreamService } from '../shared/services/dream-service';
 import { NewDreamPage } from '../pages/new-dream/new-dream';
+import { AlarmsPage } from '../pages/alarms/alarms';
+import { AlarmService } from '../shared/services/alarms-service';
 
 @NgModule({
   declarations: [
     MyApp,
     ItemDetailsPage,
     ListPage,
-    NewDreamPage
+    NewDreamPage,
+    AlarmsPage
   ],
   imports: [
     BrowserModule,
@@ -27,12 +30,14 @@ import { NewDreamPage } from '../pages/new-dream/new-dream';
     MyApp,
     ItemDetailsPage,
     ListPage,
-    NewDreamPage
+    NewDreamPage,
+    AlarmsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     DreamService,
+    AlarmService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
