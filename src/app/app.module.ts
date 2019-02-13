@@ -12,6 +12,7 @@ import { DreamService } from '../shared/services/dream-service';
 import { NewDreamPage } from '../pages/new-dream/new-dream';
 import { AlarmsPage } from '../pages/alarms/alarms';
 import { AlarmService } from '../shared/services/alarms-service';
+import { NewAlarmPage } from '../pages/new-alarm/new-alarm';
 
 @NgModule({
   declarations: [
@@ -19,11 +20,16 @@ import { AlarmService } from '../shared/services/alarms-service';
     ItemDetailsPage,
     ListPage,
     NewDreamPage,
-    AlarmsPage
+    AlarmsPage,
+    NewAlarmPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {
+      dayNames: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday','Saturday'],
+      dayShortNames: ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']
+    }),
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -31,7 +37,8 @@ import { AlarmService } from '../shared/services/alarms-service';
     ItemDetailsPage,
     ListPage,
     NewDreamPage,
-    AlarmsPage
+    AlarmsPage,
+    NewAlarmPage
   ],
   providers: [
     StatusBar,

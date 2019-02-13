@@ -6,7 +6,6 @@ import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { NewDreamPage } from '../pages/new-dream/new-dream';
 import { AlarmsPage } from '../pages/alarms/alarms';
 
 

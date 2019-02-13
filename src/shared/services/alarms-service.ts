@@ -1,6 +1,4 @@
 import { Injectable } from "@angular/core";
-import { WeekDay, Time } from "@angular/common";
-import { DateTime } from "ionic-angular";
 
 @Injectable()
 export class AlarmService {
@@ -27,4 +25,9 @@ export class Alarm {
     days: any[];
     time: any;
     enabled: boolean = true;
+}
+
+export class WeekDay {
+    day: string;
+    code: string;
 }
