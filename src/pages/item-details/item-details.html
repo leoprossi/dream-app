@@ -3,16 +3,25 @@
     <button menuToggle *ngIf="!selectedItem">
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Item Details</ion-title>
+    <ion-title>Dream Details</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <h3 text-center *ngIf="selectedItem">
-    {{selectedItem.title}}
-    <ion-icon [name]="selectedItem.icon"></ion-icon>
-  </h3>
-  <h4 text-center *ngIf="selectedItem">
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </h4>
+  <ion-list>
+    <ion-item text-wrap>
+      <h2 text-left>
+        <b>{{selectedItem.date | date}}</b>
+      </h2>
+      <br>
+      <h4>
+        {{selectedItem.content}}
+      </h4>
+    </ion-item>
+    <ion-item text-wrap>
+      <p color="medium">Feelings:</p>
+      <br>
+      <h4>{{selectedItem.feeling}}</h4>
+    </ion-item>
+  </ion-list>
 </ion-content>

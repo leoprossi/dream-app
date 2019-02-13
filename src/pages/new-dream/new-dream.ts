@@ -7,13 +7,21 @@ import { Dream, DreamService } from '../../shared/services/dream-service';
   templateUrl: 'new-dream.html',
 })
 export class NewDreamPage {
-  dream: Dream;
+  dreamContent: string;
+  dreamFeeling: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public dreamService: DreamService) {
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public dreamService: DreamService) {
   }
 
   save() {
-    this.dreamService.addDream(this.dream);
+    let dream = new Dream();
+    dream.content = this.dreamContent;
+    dream.feeling = this.dreamFeeling;
+    this.dreamService.addDream(dream);
+
+    this.navCtrl.popToRoot();
   }
 
 }

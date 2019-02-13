@@ -11,12 +11,12 @@
   <ion-list>
     <ion-item>
       <ion-label floating>How was your dream?</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" name="dreamContent" [(ngModel)]="dreamContent"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>How did you feel?</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" name="dreamFeeling" [(ngModel)]="dreamFeeling"></ion-input>
     </ion-item>
   </ion-list>
-  <button ion-button block>Save</button>
+  <button ion-button block (click)="save()">Save</button>
 </ion-content>

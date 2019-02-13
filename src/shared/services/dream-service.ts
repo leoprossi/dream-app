@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 
 @Injectable()
 export class DreamService {
-    dreamList: Dream[];
+    dreamList: Dream[] = [];
 
     addDream(dream: Dream) {
         dream.date = Date.now().toString();
