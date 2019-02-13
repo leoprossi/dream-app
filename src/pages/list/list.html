@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My First List</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <button ion-card *ngFor="let item of items" (click)="itemTapped($event, item)">
+    <ion-card-header>{{item.date}}</ion-card-header>
+    <ion-card-content>{{item.content}}</ion-card-content>
+  </button>
+
+  <ion-fab right bottom>
+      <button ion-fab color="primary" (click)="newItem($event)"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+</ion-content>
