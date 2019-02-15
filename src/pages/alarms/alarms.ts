@@ -13,11 +13,21 @@ export class AlarmsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alarmService: AlarmService) {
     this.alarms = alarmService.getAlarms();
-    console.log(this.alarms);
   }
 
   newAlarm() {
       this.navCtrl.push(NewAlarmPage);
+  }
+
+  shortNames(alarm: Alarm): string {
+    let shortNames = "";
+    alarm.days.forEach(d => {
+      if (d && d.hasOwnProperty("shortName")) {
+        shortNames += d.shortName;
+        shortNames += "  ";
+      }
+    });
+    return shortNames;
   }
 
 }

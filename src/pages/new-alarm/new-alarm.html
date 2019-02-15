@@ -10,13 +10,17 @@
 <ion-content padding>
   <ion-list>
     <ion-item>
-      <ion-label>Pick the time</ion-label>
-      <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A"></ion-datetime>
+      <ion-label color="#FFFFFF">Pick the time</ion-label>
+      <ion-datetime displayFormat="hh:mm" pickerFormat="hh mm" [(ngModel)]="choosenTime"></ion-datetime>
     </ion-item>
     <ion-item>
       <ion-label>Occurency</ion-label>
-      <ion-datetime displayFormat="DDDD"></ion-datetime>
+    </ion-item>
+    <ion-item *ngFor="let day of days">
+      <ion-label>{{day.name}}</ion-label>
+      <ion-checkbox [(ngModel)]="day.checked"></ion-checkbox>
     </ion-item>
   </ion-list>
+  <button ion-button block (click)="newAlarm()">Done</button>
   
 </ion-content>

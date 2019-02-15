@@ -10,9 +10,11 @@
 <ion-content>
   <ion-list>
     <ion-item *ngFor="let alarm of alarms">
-      <h3>{{ alarm.time | date : "HH:mm" }}</h3>
-      <p color="medium" *ngFor="let day of alarm.days">{{day}}</p>
-      <ion-toggle disabled></ion-toggle>
+      <ion-label>
+        <h3>{{ alarm.time }}</h3>
+        <p color="medium">{{shortNames(alarm)}}</p>
+      </ion-label>
+      <ion-toggle [(ngModel)]="alarm.enabled"></ion-toggle>
     </ion-item>
   </ion-list>
   <ion-fab right bottom>
