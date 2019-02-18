@@ -1,16 +1,28 @@
 import { Injectable } from "@angular/core";
+import { Storage } from '@ionic/storage';
+
+const STORAGE_KEY = 'userDreams';
 
 @Injectable()
 export class DreamService {
-    dreamList: Dream[] = [];
 
-    addDream(dream: Dream) {
-        dream.date = Date.now().toString();
-        this.dreamList.push(dream);
+    constructor(public storage: Storage) {
     }
 
-    getDreams(): Dream[] {
-        return this.dreamList;
+    addDream(dream: Dream) {
+        return this.getDreams()
+            .then(res => {
+                if (res) {
+                    res.push(dream);
+                    return this.storage.set(STORAGE_KEY, res);
+                } else {
+                    return this.storage.set(STORAGE_KEY, [dream]);
+                }
+            });
+    }
+
+    getDreams(): Promise<Dream[]> {
+        return this.storage.get(STORAGE_KEY);
     }
 }
 

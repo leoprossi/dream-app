@@ -14,16 +14,17 @@ export class ListPage {
   items: Array<Dream>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public dreamService:DreamService) {
-    this.items = dreamService.getDreams();
+    dreamService.getDreams()
+      .then(res => this.items = res);
   }
 
-  itemTapped(event, item) {
+  itemTapped(item) {
     this.navCtrl.push(ItemDetailsPage, {
       item: item
     });
   }
 
-  newItem(event) {
+  newItem() {
     this.navCtrl.push(NewDreamPage);
   }
 }

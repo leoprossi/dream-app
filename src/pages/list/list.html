@@ -8,12 +8,12 @@
 </ion-header>
 
 <ion-content>
-  <ion-card *ngFor="let item of items" (click)="itemTapped($event, item)">
+  <ion-card *ngFor="let item of items" (click)="itemTapped(item)">
     <ion-card-header>{{item.date | date : format}}</ion-card-header>
     <ion-card-content>{{item.content}}</ion-card-content>
   </ion-card>
 
   <ion-fab right bottom>
-      <button ion-fab color="primary" (click)="newItem($event)"><ion-icon name="add"></ion-icon></button>
+      <button ion-fab color="primary" (click)="newItem()"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
 </ion-content>

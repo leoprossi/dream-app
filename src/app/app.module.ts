@@ -8,6 +8,7 @@ import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { IonicStorageModule } from '@ionic/storage';
 import { DreamService } from '../shared/services/dream-service';
 import { NewDreamPage } from '../pages/new-dream/new-dream';
 import { AlarmsPage } from '../pages/alarms/alarms';
@@ -29,7 +30,7 @@ import { NewAlarmPage } from '../pages/new-alarm/new-alarm';
       dayNames: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday','Saturday'],
       dayShortNames: ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']
     }),
-
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [

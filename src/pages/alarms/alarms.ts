@@ -12,7 +12,8 @@ export class AlarmsPage {
   isActive: boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alarmService: AlarmService) {
-    this.alarms = alarmService.getAlarms();
+    alarmService.getAlarms()
+      .then(res => this.alarms = res);
   }
 
   newAlarm() {
@@ -24,7 +25,7 @@ export class AlarmsPage {
     alarm.days.forEach(d => {
       if (d && d.hasOwnProperty("shortName")) {
         shortNames += d.shortName;
-        shortNames += "  ";
+        shortNames += " ";
       }
     });
     return shortNames;
