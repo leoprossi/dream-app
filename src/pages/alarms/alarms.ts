@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { AlarmService, Alarm } from '../../shared/services/alarms-service';
 import { NewAlarmPage } from '../new-alarm/new-alarm';
@@ -7,12 +7,15 @@ import { NewAlarmPage } from '../new-alarm/new-alarm';
   selector: 'alarms',
   templateUrl: 'alarms.html'
 })
-export class AlarmsPage {
+export class AlarmsPage implements OnInit {
   alarms: Alarm[];
   isActive: boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alarmService: AlarmService) {
-    alarmService.getAlarms()
+  }
+
+  ngOnInit() {
+    this.alarmService.getAlarms()
       .then(res => this.alarms = res);
   }
 
@@ -29,6 +32,10 @@ export class AlarmsPage {
       }
     });
     return shortNames;
+  }
+
+  toggle(id: number) {
+    this.alarmService.toggle(id);
   }
 
 }

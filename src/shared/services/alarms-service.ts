@@ -37,8 +37,20 @@ export class AlarmService {
             })
     }
 
-    getAlarms(): Promise<any> {
+    async getAlarms(): Promise<any> {
         return this.storage.get(STORAGE_KEY);
+    }
+
+    async toggle(id: number) {
+        this.getAlarms().then(res => {
+            res.forEach(element => {
+                if (element.id === id) {
+                    element.enabled = !element.enabled;
+                }
+            });
+            console.log(res);
+            return this.storage.set(STORAGE_KEY, res);
+        })
     }
 }
 
@@ -46,5 +58,5 @@ export class Alarm {
     id: number;
     days: any[];
     time: any;
-    enabled: boolean = true;
+    enabled: boolean;
 }
