@@ -7,10 +7,10 @@ import { ViewController } from 'ionic-angular';
 })
 export class PopoverComponent {
 
-  text: string;
+  item: any;
+  
 
   constructor(public viewCtrl: ViewController) {
-    console.log('Hello PopoverComponent Component');
   }
 
   delete() {

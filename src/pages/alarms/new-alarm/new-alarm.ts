@@ -51,7 +51,7 @@ export class NewAlarmPage {
       alarm.time = this.choosenTime;
       alarm.enabled = true;
 
-      this.alarmService.newAlarm(alarm)
+      this.alarmService.create(alarm)
         .then(res => this.navCtrl.popTo(AlarmsPage));
     }
   }

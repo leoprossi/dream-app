@@ -19,7 +19,7 @@ export class NewDreamPage {
     let dream = new Dream();
     dream.content = this.dreamContent;
     dream.feeling = this.dreamFeeling;
-    this.dreamService.addDream(dream);
+    this.dreamService.create(dream);
 
     this.navCtrl.popToRoot();
   }

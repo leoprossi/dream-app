@@ -1,16 +1,17 @@
 import { Injectable } from "@angular/core";
 import { Storage } from '@ionic/storage';
+import { CrudService } from "./crud-service";
 
 const STORAGE_KEY = 'userDreams';
 
 @Injectable()
-export class DreamService {
+export class DreamService implements CrudService<Dream> {
 
     constructor(public storage: Storage) {
     }
 
-    addDream(dream: Dream) {
-        return this.getDreams()
+    async create(dream: Dream): Promise<any> {
+        return this.getAll()
             .then(res => {
                 if (res) {
                     res.push(dream);
@@ -21,8 +22,16 @@ export class DreamService {
             });
     }
 
-    getDreams(): Promise<Dream[]> {
+    async getAll(): Promise<any> {
         return this.storage.get(STORAGE_KEY);
+    }
+
+    async update(dream: Dream): Promise<any> {
+        return this.getAll();
+    }
+
+    async delete(dream: Dream): Promise<any> {
+        return this.getAll();
     }
 }
 

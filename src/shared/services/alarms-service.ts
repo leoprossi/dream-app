@@ -1,20 +1,21 @@
 import { Injectable } from "@angular/core";
 import { Storage } from '@ionic/storage';
+import { CrudService } from "./crud-service";
 
 const STORAGE_KEY = 'userAlarms';
 const STORAGE_SEQ = 'alarmSeq';
 
 @Injectable()
-export class AlarmService {
+export class AlarmService implements CrudService<Alarm> {
 
     constructor(public storage: Storage) {
     }
 
-    getSeq() {
+    private getSeq() {
         return this.storage.get(STORAGE_SEQ);
     }
 
-    async newAlarm(alarm: Alarm) {
+    async create(alarm: Alarm): Promise<any> {
         this.getSeq().then(res => {
             if (res) {
                 alarm.id = res;
@@ -24,7 +25,7 @@ export class AlarmService {
                 this.storage.set(STORAGE_SEQ, 2);
             }
         });
-        return this.getAlarms()
+        return this.getAll()
             .then(result => {
                 if (result) {
                     result.push(alarm);
@@ -35,17 +36,35 @@ export class AlarmService {
             })
     }
 
-    async getAlarms(): Promise<any> {
+    async getAll(): Promise<any> {
         return this.storage.get(STORAGE_KEY);
     }
 
     async toggle(id: number) {
-        this.getAlarms().then(res => {
+        this.getAll().then(res => {
             res.forEach(element => {
                 if (element.id === id) {
                     element.enabled = !element.enabled;
                 }
             });
+            return this.storage.set(STORAGE_KEY, res);
+        })
+    }
+
+    async update(alarm: Alarm): Promise<any> {
+        this.getAll().then(res => {
+            res.forEach(el => {
+                if (el.id === alarm.id) {
+                    el = alarm;
+                }
+            });
+            return this.storage.set(STORAGE_KEY, res);
+        })
+    }
+
+    async delete(alarm: Alarm): Promise<any> {
+        return this.getAll().then(res => {
+            res.filter(el => el.id != alarm.id);
             return this.storage.set(STORAGE_KEY, res);
         })
     }

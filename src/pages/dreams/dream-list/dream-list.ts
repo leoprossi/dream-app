@@ -17,7 +17,7 @@ export class ListPage implements OnInit {
   }
 
   ngOnInit() {
-    this.dreamService.getDreams()
+    this.dreamService.getAll()
       .then(res => this.items = res);
   }
 

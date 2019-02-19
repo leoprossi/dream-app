@@ -14,7 +14,7 @@ export class AlarmsPage {
   isActive: boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alarmService: AlarmService) {
-    this.alarmService.getAlarms()
+    this.alarmService.getAll()
       .then(res => this.alarms = res);
   }
 
