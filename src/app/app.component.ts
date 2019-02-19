@@ -2,11 +2,11 @@ import { Component, ViewChild } from '@angular/core';
 
 import { Platform, MenuController, Nav } from 'ionic-angular';
 
-import { ListPage } from '../pages/list/list';
+import { ListPage } from '../pages/dreams/dream-list/dream-list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { AlarmsPage } from '../pages/alarms/alarms';
+import { AlarmsPage } from '../pages/alarms/alarm-list/alarm-list';
 
 
 @Component({
