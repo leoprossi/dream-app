@@ -9,13 +9,13 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let alarm of alarms">
+    <button ion-item *ngFor="let alarm of alarms" (click)="editAlarm(alarm)">
       <ion-label>
         <h3>{{ alarm.time }}</h3>
         <p color="medium">{{shortNames(alarm)}}</p>
       </ion-label>
       <ion-toggle [(ngModel)]="alarm.enabled" (ngModelChange)="toggle(alarm.id)"></ion-toggle>
-    </ion-item>
+    </button>
   </ion-list>
   <ion-fab right bottom>
     <button ion-fab color="primary" (click)="newAlarm()"><ion-icon name="add"></ion-icon></button>

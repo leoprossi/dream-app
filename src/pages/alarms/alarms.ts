@@ -1,31 +1,32 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, IonicPage } from 'ionic-angular';
 import { AlarmService, Alarm } from '../../shared/services/alarms-service';
 import { NewAlarmPage } from '../new-alarm/new-alarm';
+import { EditAlarmPage } from '../edit-alarm/edit-alarm';
 
+@IonicPage()
 @Component({
   selector: 'alarms',
   templateUrl: 'alarms.html'
 })
-export class AlarmsPage implements OnInit {
+export class AlarmsPage {
   alarms: Alarm[];
   isActive: boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alarmService: AlarmService) {
-  }
-
-  ngOnInit() {
     this.alarmService.getAlarms()
       .then(res => this.alarms = res);
   }
 
   newAlarm() {
-      this.navCtrl.push(NewAlarmPage);
+    this.navCtrl.push(NewAlarmPage);
   }
 
   shortNames(alarm: Alarm): string {
     let shortNames = "";
-    alarm.days.forEach(d => {
+    alarm.days
+      .filter(day => day.checked)
+      .forEach(d => {
       if (d && d.hasOwnProperty("shortName")) {
         shortNames += d.shortName;
         shortNames += " ";
@@ -36,6 +37,10 @@ export class AlarmsPage implements OnInit {
 
   toggle(id: number) {
     this.alarmService.toggle(id);
+  }
+
+  editAlarm(alarm: Alarm) {
+    this.navCtrl.push(EditAlarmPage, { alarm: alarm });
   }
 
 }

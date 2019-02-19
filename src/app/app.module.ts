@@ -14,6 +14,7 @@ import { NewDreamPage } from '../pages/new-dream/new-dream';
 import { AlarmsPage } from '../pages/alarms/alarms';
 import { AlarmService } from '../shared/services/alarms-service';
 import { NewAlarmPage } from '../pages/new-alarm/new-alarm';
+import { EditAlarmPage } from '../pages/edit-alarm/edit-alarm';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NewAlarmPage } from '../pages/new-alarm/new-alarm';
     ListPage,
     NewDreamPage,
     AlarmsPage,
-    NewAlarmPage
+    NewAlarmPage,
+    EditAlarmPage
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,8 @@ import { NewAlarmPage } from '../pages/new-alarm/new-alarm';
     ListPage,
     NewDreamPage,
     AlarmsPage,
-    NewAlarmPage
+    NewAlarmPage,
+    EditAlarmPage
   ],
   providers: [
     StatusBar,

@@ -24,7 +24,6 @@ export class AlarmService {
                 this.storage.set(STORAGE_SEQ, 2);
             }
         });
-        console.log(alarm);
         return this.getAlarms()
             .then(result => {
                 if (result) {
@@ -33,7 +32,6 @@ export class AlarmService {
                 } else {
                     this.storage.set(STORAGE_KEY, [alarm]);
                 }
-                console.log(alarm);
             })
     }
 
@@ -48,7 +46,6 @@ export class AlarmService {
                     element.enabled = !element.enabled;
                 }
             });
-            console.log(res);
             return this.storage.set(STORAGE_KEY, res);
         })
     }

@@ -3,13 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AlarmService, Alarm } from '../../shared/services/alarms-service';
 import { AlarmsPage } from '../alarms/alarms';
 
-/**
- * Generated class for the NewAlarmPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-new-alarm',
@@ -54,7 +47,7 @@ export class NewAlarmPage {
   newAlarm() {
     if (this.choosenTime) {
       let alarm = new Alarm();
-      alarm.days = this.days.filter(d => d.checked === true);
+      alarm.days = this.days;
       alarm.time = this.choosenTime;
       alarm.enabled = true;
 
