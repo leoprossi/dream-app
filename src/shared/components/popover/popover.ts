@@ -1,4 +1,4 @@
-import { Component, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 import { ViewController, AlertController, NavController } from 'ionic-angular';
 import { CrudService } from '../../services/crud-service';
 import { AlarmsPage } from '../../../pages/alarms/alarm-list/alarm-list';

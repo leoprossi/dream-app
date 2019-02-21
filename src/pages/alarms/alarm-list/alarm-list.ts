@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController, NavParams, IonicPage } from 'ionic-angular';
 import { AlarmService, Alarm } from '../../../shared/services/alarms-service';
 import { NewAlarmPage } from '../new-alarm/new-alarm';
