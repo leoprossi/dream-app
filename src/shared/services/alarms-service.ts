@@ -64,15 +64,43 @@ export class AlarmService implements CrudService<Alarm> {
 
     async delete(alarm: Alarm): Promise<any> {
         return this.getAll().then(res => {
-            res.filter(el => el.id != alarm.id);
-            return this.storage.set(STORAGE_KEY, res);
-        })
+            return this.storage.set(STORAGE_KEY, 
+                res.filter(el => el.id != alarm.id));
+        });
     }
 }
 
 export class Alarm {
     id: number;
-    days: any[];
     time: any;
-    enabled: boolean;
+    enabled: boolean = true;
+    days = [{
+        name: 'Sunday', 
+        shortName: 'sun',
+        checked: false
+      }, {
+        name: 'Monday',
+        shortName: 'mon',
+        checked: false
+      }, {
+        name: 'Tuesday', 
+        shortName: 'tue',
+        checked: false
+      }, {
+        name: 'Wednesday', 
+        shortName: 'wed',
+        checked: false
+      }, {
+        name: 'Thursday', 
+        shortName: 'thu',
+        checked: false
+      }, {
+        name: 'Friday',
+        shortName: 'fri',
+        checked: false
+      }, {
+        name: 'Saturday',
+        shortName: 'sat',
+        checked: false
+      }];
 }

@@ -14,6 +14,9 @@ export class AlarmsPage {
   isActive: boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alarmService: AlarmService) {
+  }
+
+  ionViewWillEnter() {
     this.alarmService.getAll()
       .then(res => this.alarms = res);
   }

@@ -16,6 +16,7 @@ import { AlarmService } from '../shared/services/alarms-service';
 import { NewAlarmPage } from '../pages/alarms/new-alarm/new-alarm';
 import { EditAlarmPage } from '../pages/alarms/edit-alarm/edit-alarm';
 import { PopoverComponent } from '../shared/components/popover/popover';
+import { AlarmFormComponent } from '../shared/components/alarm-form/alarm-form';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { PopoverComponent } from '../shared/components/popover/popover';
     AlarmsPage,
     NewAlarmPage,
     EditAlarmPage,
-    PopoverComponent
+    PopoverComponent,
+    AlarmFormComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,8 @@ import { PopoverComponent } from '../shared/components/popover/popover';
     AlarmsPage,
     NewAlarmPage,
     EditAlarmPage,
-    PopoverComponent
+    PopoverComponent,
+    AlarmFormComponent
   ],
   providers: [
     StatusBar,

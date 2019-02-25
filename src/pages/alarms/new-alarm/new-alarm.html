@@ -8,19 +8,5 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
-    <ion-item>
-      <ion-label>Pick the time</ion-label>
-      <ion-datetime displayFormat="H:mm" pickerFormat="H mm" [(ngModel)]="choosenTime"></ion-datetime>
-    </ion-item>
-    <ion-item>
-      <ion-label>Occurency</ion-label>
-    </ion-item>
-    <ion-item *ngFor="let day of days">
-      <ion-label>{{day.name}}</ion-label>
-      <ion-checkbox [(ngModel)]="day.checked"></ion-checkbox>
-    </ion-item>
-  </ion-list>
-  <button ion-button block (click)="newAlarm()">Done</button>
-  
+  <alarm-form [alarm]="emptyAlarm" (onDone)="newAlarm($event)"></alarm-form>  
 </ion-content>

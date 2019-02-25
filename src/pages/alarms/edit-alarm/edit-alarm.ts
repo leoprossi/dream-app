@@ -23,5 +23,16 @@ export class EditAlarmPage {
     pop.present({
       ev: event
     });
+    pop.onDidDismiss((result) => {
+      if (result) {
+        this.alarmService.delete(this.alarm);
+        this.navCtrl.pop();
+      }
+    });
+  }
+
+  editAlarm(event) {
+    console.log(event);
+    // this.alarmService.update(event);
   }
 }

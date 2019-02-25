@@ -9,48 +9,14 @@ import { AlarmsPage } from '../alarm-list/alarm-list';
   templateUrl: 'new-alarm.html',
 })
 export class NewAlarmPage {
-  days = [{
-    name: 'Sunday', 
-    shortName: 'sun',
-    checked: false
-  }, {
-    name: 'Monday',
-    shortName: 'mon',
-    checked: false
-  }, {
-    name: 'Tuesday', 
-    shortName: 'tue',
-    checked: false
-  }, {
-    name: 'Wednesday', 
-    shortName: 'wed',
-    checked: false
-  }, {
-    name: 'Thursday', 
-    shortName: 'thu',
-    checked: false
-  }, {
-    name: 'Friday',
-    shortName: 'fri',
-    checked: false
-  }, {
-    name: 'Saturday',
-    shortName: 'sat',
-    checked: false
-  }];
 
-  choosenTime;
-
+  emptyAlarm = new Alarm();
+  
   constructor(public navCtrl: NavController, public navParams: NavParams, public alarmService: AlarmService) {
   }
 
-  newAlarm() {
-    if (this.choosenTime) {
-      let alarm = new Alarm();
-      alarm.days = this.days;
-      alarm.time = this.choosenTime;
-      alarm.enabled = true;
-
+  newAlarm(alarm) {
+    if (alarm.time && alarm.days.filter(d => d.checked).length > 0) {
       this.alarmService.create(alarm)
         .then(res => this.navCtrl.popTo(AlarmsPage));
     }
