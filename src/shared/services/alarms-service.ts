@@ -75,30 +75,37 @@ export class Alarm {
     time: any;
     enabled: boolean = true;
     days = [{
+        cod: 0,
         name: 'Sunday', 
         shortName: 'sun',
         checked: false
       }, {
+        cod: 1,
         name: 'Monday',
         shortName: 'mon',
         checked: false
       }, {
+        cod: 2,
         name: 'Tuesday', 
         shortName: 'tue',
         checked: false
       }, {
+        cod: 3,
         name: 'Wednesday', 
         shortName: 'wed',
         checked: false
       }, {
+        cod: 4,
         name: 'Thursday', 
         shortName: 'thu',
         checked: false
       }, {
+        cod: 5,
         name: 'Friday',
         shortName: 'fri',
         checked: false
       }, {
+        cod: 6,
         name: 'Saturday',
         shortName: 'sat',
         checked: false
