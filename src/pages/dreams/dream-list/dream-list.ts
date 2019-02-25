@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, IonicPage } from 'ionic-angular';
 
 import { ItemDetailsPage } from '../dream-details/dream-details';
 import { Dream, DreamService } from '../../../shared/services/dream-service';
 import { NewDreamPage } from '../new-dream/new-dream';
 
+@IonicPage()
 @Component({
   selector: 'page-list',
   templateUrl: 'dream-list.html'

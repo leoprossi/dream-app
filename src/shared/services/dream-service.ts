@@ -11,6 +11,7 @@ export class DreamService implements CrudService<Dream> {
     }
 
     async create(dream: Dream): Promise<any> {
+        dream.date = new Date().toDateString();
         return this.getAll()
             .then(res => {
                 if (res) {
