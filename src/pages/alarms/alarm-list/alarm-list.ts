@@ -28,15 +28,15 @@ export class AlarmsPage {
   shortNames(alarm: Alarm): string {
     let shortNames = "";
     alarm.days
-      .filter(day => day.checked)
-      .forEach(d => {
-      if (d && d.hasOwnProperty("shortName")) {
+        .filter(day => day.checked)
+        .forEach(d => {
+        if (d && d.hasOwnProperty("shortName")) {
         shortNames += d.shortName;
         shortNames += " ";
-      }
+        }
     });
     return shortNames;
-  }
+}
 
   toggle(id: number) {
     this.alarmService.toggle(id);

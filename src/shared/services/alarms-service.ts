@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Storage } from '@ionic/storage';
 import { CrudService } from "./crud-service";
+import { Time } from "@angular/common";
 
 const STORAGE_KEY = 'userAlarms';
 const STORAGE_SEQ = 'alarmSeq';
@@ -72,7 +73,7 @@ export class AlarmService implements CrudService<Alarm> {
 
 export class Alarm {
     id: number;
-    time: any;
+    time: Time;
     enabled: boolean = true;
     days = [{
         cod: 0,
